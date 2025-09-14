@@ -41,8 +41,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
         pb: 3,
       }}
     >
-      {/* Top Section */}
-
       <Box>
         <Box
           sx={{
@@ -51,7 +49,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
             alignItems: "center",
           }}
         >
-          {/* Left side: Logo + Text */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Logo />
             <Typography variant="h5" fontWeight="bold">
@@ -59,13 +56,11 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
             </Typography>
           </Box>
 
-          {/* Right side: collapse button */}
           <IconButton onClick={toggleSidebar}>
             <ChevronLeft />
           </IconButton>
         </Box>
 
-        {/* Search */}
         <Box
           sx={{
             mt: 2,
@@ -128,12 +123,11 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
                 boxShadow: item.active ? "0px 1px 3px rgba(0,0,0,0.1)" : "none",
                 "&:hover": {
                   backgroundColor: "#f3f4f6",
-                  "& svg": { color: "#2563EB" }, // icon blue on hover
-                  "& .MuiListItemText-root": { color: "#2563EB" }, // text blue on hover
+                  "& svg": { color: "#2563EB" },
+                  "& .MuiListItemText-root": { color: "#2563EB" },
                 },
               }}
             >
-              {/* Left: Icon + Text */}
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <ListItemIcon
                   sx={{
@@ -152,7 +146,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
                 />
               </Box>
 
-              {/* Right: Shortcut */}
               <Typography
                 variant="body2"
                 sx={{
@@ -172,7 +165,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
 
         <Divider sx={{ my: 1 }} />
 
-        {/* Recent Chats */}
         <Box>
           <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
             Recent Chats
@@ -209,7 +201,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
         </Box>
       </Box>
 
-      {/* Bottom */}
       <Box>
         <Box
           sx={{

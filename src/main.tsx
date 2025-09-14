@@ -14,5 +14,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// READ AND UNDERSTAND THE CODE WRITTEN FIRST

@@ -33,12 +33,10 @@ export const useChat = () => {
 
 export const ChatProvider = ({ children }: { children: ReactNode }) => {
   const [chats, setChats] = useState<Chats>(() => {
-    // Load saved chats from localStorage on init
     const saved = localStorage.getItem(CHAT_STORAGE_KEY);
     return saved ? JSON.parse(saved) : {};
   });
 
-  // Save chats to localStorage every time chats change
   useEffect(() => {
     localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(chats));
   }, [chats]);

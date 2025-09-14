@@ -11,7 +11,6 @@ interface Props {
 }
 
 const SidebarCollapsed: React.FC<Props> = ({ toggleSidebar }) => {
-  // Reusable style for all IconButtons
   const iconButtonStyles = {
     color: "#6B7280",
     "&:hover": { color: "#2563EB" },
@@ -31,12 +30,11 @@ const SidebarCollapsed: React.FC<Props> = ({ toggleSidebar }) => {
         gap: 1.5,
       }}
     >
-      {/* Top Section */}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: 1.5, // 👈 increase this number to control space
+          gap: 1.5,
         }}
       >
         <IconButton onClick={toggleSidebar} sx={iconButtonStyles}>
@@ -74,7 +72,6 @@ const SidebarCollapsed: React.FC<Props> = ({ toggleSidebar }) => {
         </Tooltip>
       </Box>
 
-      {/* Bottom Section */}
       <Box>
         <Tooltip title="Try Pro!" placement="right">
           <Box sx={{ backgroundColor: "#fff", borderRadius: 1, mb: 1, p: 0.5 }}>

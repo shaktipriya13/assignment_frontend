@@ -1,9 +1,9 @@
 .messages-container::-webkit-scrollbar {
-  width: 6px; /* thin scrollbar */
+  width: 6px;
 }
 
 .messages-container::-webkit-scrollbar-track {
-  background: transparent; /* or a subtle gray */
+  background: transparent;
 }
 
 .messages-container::-webkit-scrollbar-thumb {

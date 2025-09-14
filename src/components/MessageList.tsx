@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import MessageBubble from "./Chat/MessageBubble";
 import { Message } from "../types/types";
