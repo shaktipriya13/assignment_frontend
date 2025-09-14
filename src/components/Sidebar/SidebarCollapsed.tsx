@@ -80,7 +80,7 @@ const SidebarCollapsed: React.FC<Props> = ({ toggleSidebar }) => {
         </Tooltip>
 
         <img
-          src="/pp.jpeg"
+          src="/avatar.png"
           alt="avatar"
           style={{
             width: 32,
