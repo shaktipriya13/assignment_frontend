@@ -1,0 +1,22 @@
+.messages-container::-webkit-scrollbar {
+  width: 6px; /* thin scrollbar */
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: transparent; /* or a subtle gray */
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* For Firefox */
+.messages-container {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}

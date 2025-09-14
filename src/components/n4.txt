@@ -1,0 +1,258 @@
+Low Priority (Share If Needed for Edge Cases or Setup)
+These are setup/config files. Only share if we hit issues with build, linting, or responsiveness.
+
+App.css 
+.messages-container::-webkit-scrollbar {
+  width: 6px; /* thin scrollbar */
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: transparent; /* or a subtle gray */
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* For Firefox */
+.messages-container {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+
+index.css - Global styles.
+.main-content {
+  padding: 2rem; /* Add some spacing all around */
+  min-height: 100vh; /* Fill the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* keep content from top, adjust to center if you want */
+  align-items: center; /* center horizontally */
+  box-sizing: border-box; /* include padding in height */
+}
+
+
+
+tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "types": ["node"]
+  },
+  "include": ["src"]
+}
+
+tsconfig.app.json - TypeScript config.
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}
+
+
+
+package.json - Dependencies (e.g., to confirm MUI, Zustand/Context setup).
+{
+  "name": "nextdoc_ass",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/inter": "^5.2.6",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "@mui/styled-engine-sc": "^7.3.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-dropzone": "^14.3.8",
+    "react-router-dom": "^7.8.2",
+    "styled-components": "^6.1.19",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  }
+}
+
+
+
+vite-env.d.ts - Environment types.
+/// <reference types="vite/client" />
+
+
+Chat/ChatHistory.tsx 
+// Scrollable message feed (loop over messages)
+import React from "react";
+import { Message } from "../../types";
+import ChatMessage from "./ChatMessage";
+
+interface ChatHistoryProps {
+  messages: Message[];
+}
+
+const ChatHistory: React.FC<ChatHistoryProps> = ({ messages }) => {
+  return (
+    <div className="flex-1 overflow-y-auto px-4 py-2">
+      {messages.map((msg) => (
+        <ChatMessage key={msg.id} message={msg} />
+      ))}
+    </div>
+  );
+};
+
+export default ChatHistory;
+
+
+Sidebar:
+export const ChatHistory = ({ chats }: { chats: string[] }) => (
+  <div>
+    <h3 className="text-sm font-semibold mt-4 mb-2">Recent Chats</h3>
+    <ul>
+      {chats.map((chat, i) => (
+        <li key={i} className="text-xs text-gray-700 truncate">
+          {chat}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+
+CardList.tsx
+import { Box, Typography, Grid } from "@mui/material";
+import SuggestionCard from "./SuggestionCard";
+
+const suggestions = [
+  "Give me a concise summary of this meeting transcript",
+  "Write a product description for a minimalist smartwatch",
+  "Provide a polite response to a customer asking for a refund",
+];
+
+const CardList = () => {
+  return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+      }}
+    >
+      <Box sx={{ maxWidth: 960, width: "100%", px: 4, pt: 4 }}>
+        <Typography variant="h5" fontWeight="bold" mb={1}>
+          👋🏻 Hi Laurence!
+        </Typography>
+        <Typography variant="h4" fontWeight={700} mb={4}>
+          What do you want to learn today?
+        </Typography>
+
+        <Grid container spacing={3}>
+          {suggestions.map((s, idx) => (
+            <Grid item xs={12} sm={6} md={4} key={idx}>
+              <SuggestionCard text={s} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
+
+export default CardList;
+
+ChatEditor.tsx
+import React, { useState } from "react";
+import { Box, TextField, IconButton } from "@mui/material";
+import Send from "@mui/icons-material/Send";
+import { useChat } from "../context/ChatContext";
+import CardList from "./CardList";
+
+export default function ChatEditor() {
+  const [text, setText] = useState("");
+  const { sendMessage } = useChat();
+
+  const handleSend = () => {
+    if (!text.trim()) return;
+    sendMessage(text.trim());
+    setText("");
+  };
+
+  return (
+    <>
+      <CardList />
+      <Box display="flex" gap={1} p={2} alignItems="center">
+        <TextField
+          fullWidth
+          multiline
+          minRows={1}
+          maxRows={4}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSend();
+            }
+          }}
+          placeholder="Write a message..."
+        />
+        <IconButton onClick={handleSend} color="primary">
+          <Send />
+        </IconButton>
+      </Box>
+    </>
+  );
+}
