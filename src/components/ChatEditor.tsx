@@ -6,11 +6,11 @@ import CardList from "./CardList";
 
 export default function ChatEditor() {
   const [text, setText] = useState("");
-  const { sendMessage } = useChat();
+  // const { sendMessage } = useChat();
 
   const handleSend = () => {
     if (!text.trim()) return;
-    sendMessage(text.trim());
+    // sendMessage(text.trim());
     setText("");
   };
 

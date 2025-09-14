@@ -2,7 +2,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import SuggestionCard from "./SuggestionCard";
 import "@fontsource/inter";
 
-const suggestions = [
+const suggestions: string[] = [
   "Give me a concise summary of this meeting transcript",
   "Write a product description for a minimalist smartwatch",
   "Provide a polite response to a customer asking for a refund",
@@ -28,7 +28,7 @@ const CardList = () => {
 
         <Grid container spacing={3}>
           {suggestions.map((s, idx) => (
-            <Grid item xs={12} sm={6} md={4} key={idx}>
+            <Grid key={idx} item xs={12} sm={6} md={4}>
               <SuggestionCard text={s} />
             </Grid>
           ))}
