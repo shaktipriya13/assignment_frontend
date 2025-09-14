@@ -35,12 +35,10 @@ const MessageInput: React.FC<MessageInputProps> = ({ chatId }) => {
     if (isSendDisabled) return;
 
     if (chatId) {
-      // Existing chat: add user message and assistant reply
       addMessage(chatId, { sender: "user", text: message });
       sendAssistantReply(chatId);
       setMessage("");
     } else {
-      // New chat: create chat and navigate
       const newChatId = createChat(message);
       sendAssistantReply(newChatId);
       setMessage("");

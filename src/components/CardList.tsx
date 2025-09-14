@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 import SuggestionCard from "./SuggestionCard";
-import "@fontsource/inter"; // defaults to weight 400
+import "@fontsource/inter";
 
 const suggestions = [
   "Give me a concise summary of this meeting transcript",
