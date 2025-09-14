@@ -132,8 +132,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SuggestionCard from "./SuggestionCard";
 import "@fontsource/inter";
-import { ReactNode } from "react"; // Import ReactNode type
-import { textAlign } from "@mui/system";
+import { ReactNode } from "react";
 
 const suggestions = [
   "Give me a concise summary of this meeting transcript",
@@ -142,7 +141,7 @@ const suggestions = [
 ];
 
 interface CardContainerProps {
-  children: ReactNode; // Type the children prop
+  children: ReactNode;
 }
 
 const CardContainer = ({ children }: CardContainerProps) => (
@@ -151,7 +150,7 @@ const CardContainer = ({ children }: CardContainerProps) => (
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
-      gap: 2, // Space between cards
+      gap: 2,
       maxWidth: 960,
       width: "100%",
       margin: "0 auto",
