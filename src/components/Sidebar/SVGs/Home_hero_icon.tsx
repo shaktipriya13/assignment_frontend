@@ -4,7 +4,6 @@ const HomeIcon = ({ size = 24 }: { size?: number }) => (
     height={size}
     viewBox="0 0 24 24"
     fill="#2563EB"
-    // fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

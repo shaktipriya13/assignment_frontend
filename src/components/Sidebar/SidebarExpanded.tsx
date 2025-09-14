@@ -42,7 +42,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
       }}
     >
       <Box>
-        {/* Header */}
         <Box
           sx={{
             display: "flex",
@@ -62,7 +61,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
           </IconButton>
         </Box>
 
-        {/* Search */}
         <Box
           sx={{
             mt: 2,
@@ -84,7 +82,6 @@ const SidebarExpanded: React.FC<Props> = ({ toggleSidebar }) => {
           />
         </Box>
 
-        {/* Menu List */}
         <List>
           {[
             {

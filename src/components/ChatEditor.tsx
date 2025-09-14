@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import Send from "@mui/icons-material/Send";
-import { useChat } from "../context/ChatContext";
 import CardList from "./CardList";
 
 export default function ChatEditor() {
   const [text, setText] = useState("");
-  // const { sendMessage } = useChat();
 
   const handleSend = () => {
     if (!text.trim()) return;
-    // sendMessage(text.trim());
     setText("");
   };
 
